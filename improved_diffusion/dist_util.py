@@ -9,9 +9,9 @@ import socket
 import blobfile as bf
 import torch as th
 import torch.distributed as dist
-import mpi4py
-mpi4py.rc.threads = False
-from mpi4py import MPI
+#import mpi4py
+#mpi4py.rc.threads = False
+#from mpi4py import MPI
 # Change this to reflect your cluster layout.
 # The GPU for a given rank is (rank % GPUS_PER_NODE).
 GPUS_PER_NODE = 8
