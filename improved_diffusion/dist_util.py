@@ -8,6 +8,7 @@ import socket
 
 import blobfile as bf
 from mpi4py import MPI
+mpi4py.rc.threads = False
 import torch as th
 import torch.distributed as dist
 
