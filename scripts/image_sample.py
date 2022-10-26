@@ -51,6 +51,7 @@ def main():
             classes = th.randint(
                 low=class_nb, high=class_nb+1, size=(args.batch_size,), device=dist_util.dev()
             )
+            model_kwargs["y"] = classes
         sample_fn = (
             diffusion.p_sample_loop if not args.use_ddim else diffusion.ddim_sample_loop
         )
