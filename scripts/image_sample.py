@@ -41,11 +41,16 @@ def main():
     all_labels = []
     while len(all_images) * args.batch_size < args.num_samples:
         model_kwargs = {}
-        if args.class_cond:
+        if args.class_cond and agrs.sample_class == None:
             classes = th.randint(
-                low=0, high=1, size=(args.batch_size,), device=dist_util.dev()
+                low=0, high=NUM_CLASSES, size=(args.batch_size,), device=dist_util.dev()
             )
             model_kwargs["y"] = classes
+        elif args.class_cond and agrs.sample_class not None
+            class_nb = int(args.sample_class)
+            classes = th.randint(
+                low=class_nb, high=class_nb+1, size=(args.batch_size,), device=dist_util.dev()
+            )
         sample_fn = (
             diffusion.p_sample_loop if not args.use_ddim else diffusion.ddim_sample_loop
         )
