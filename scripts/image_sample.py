@@ -41,7 +41,7 @@ def main():
     all_labels = []
     while len(all_images) * args.batch_size < args.num_samples:
         model_kwargs = {}
-        if args.class_cond and agrs.sample_class == None:
+        if args.class_cond and args.sample_class == None:
             classes = th.randint(
                 low=0, high=NUM_CLASSES, size=(args.batch_size,), device=dist_util.dev()
             )
