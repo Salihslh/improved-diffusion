@@ -46,7 +46,7 @@ def main():
                 low=0, high=NUM_CLASSES, size=(args.batch_size,), device=dist_util.dev()
             )
             model_kwargs["y"] = classes
-        elif args.class_cond and agrs.sample_class is not None:
+        elif args.class_cond and args.sample_class is not None:
             class_nb = int(args.sample_class)
             classes = th.randint(
                 low=class_nb, high=class_nb+1, size=(args.batch_size,), device=dist_util.dev()
